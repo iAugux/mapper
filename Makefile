@@ -1,26 +1,16 @@
 # Install Tasks
 
-install-iOS:
-	true
-
-install-OSX:
-	true
-
-install-tvOS:
-	true
+export HOMEBREW_NO_AUTO_UPDATE = 1
 
 install-lint:
 	brew remove swiftlint --force || true
-	brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/3d0cc175398ceba2c42204b04dd2a3b5d79536d9/Formula/swiftlint.rb
+	brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/8c244102fdd0710bcf223daa03e5868ba388d088/Formula/swiftlint.rb
 
 install-carthage:
 	brew remove carthage --force || true
-	brew install https://raw.githubusercontent.com/Homebrew/homebrew/b0ea85753ecee494dc97fc9f95c5afb9d0b447be/Library/Formula/carthage.rb
+	brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/8c244102fdd0710bcf223daa03e5868ba388d088/Formula/carthage.rb
 
-install-coverage:
-	true
-
-install-swiftpm-osx:
+install-%:
 	true
 
 # Run Tasks
@@ -33,15 +23,17 @@ test-iOS:
 		xcodebuild \
 		-project Mapper.xcodeproj \
 		-scheme Mapper \
-		-destination "name=iPhone 6s" \
+		-configuration Release \
+		-destination "name=iPhone 7,OS=10.1" \
 		test \
 		| xcpretty -ct
 
-test-OSX:
+test-macOS:
 	set -o pipefail && \
 		xcodebuild \
 		-project Mapper.xcodeproj \
 		-scheme Mapper \
+		-configuration Release \
 		test \
 		| xcpretty -ct
 
@@ -50,12 +42,18 @@ test-tvOS:
 		xcodebuild \
 		-project Mapper.xcodeproj \
 		-scheme Mapper \
+		-configuration Release \
 		-destination "name=Apple TV 1080p" \
 		test \
 		| xcpretty -ct
 
 test-carthage:
-	carthage build --no-skip-current
+	set -o pipefail && \
+		carthage build \
+		--no-skip-current \
+		--configuration Release \
+		--verbose \
+		| xcpretty -ct
 	ls Carthage/build/Mac/Mapper.framework
 	ls Carthage/build/iOS/Mapper.framework
 	ls Carthage/build/tvOS/Mapper.framework
@@ -74,5 +72,5 @@ test-coverage:
 	Resources/coverage.sh build
 	! grep -C 10 "^\s*0" coverage.txt
 
-test-swiftpm-osx:
+test-swiftpm-macOS:
 	swift test

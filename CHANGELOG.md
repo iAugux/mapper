@@ -12,6 +12,32 @@
 
 - None
 
+# 6.0.0
+
+## Breaking
+
+- Fix Xcode 8.1 `Any` -> `Any?` warning
+  [Keith Smiley](https://github.com/keith)
+  [#87](https://github.com/lyft/mapper/pull/87)
+
+## Enhancements
+
+- Add JSONSerialization integration tests
+  [Keith Smiley](https://github.com/keith)
+  [#76](https://github.com/lyft/mapper/pull/90)
+- Test with optimizations
+  [Keith Smiley](https://github.com/keith)
+  [#92](https://github.com/lyft/mapper/pull/92)
+- Strip down xcodeproj settings
+  [Keith Smiley](https://github.com/keith)
+  [#91](https://github.com/lyft/mapper/pull/91)
+
+## Bug Fixes
+
+- Fix `TimeInterval` test
+  [Keith Smiley](https://github.com/keith)
+  [#88](https://github.com/lyft/mapper/pull/88)
+
 # 5.0.0
 
 ## Breaking
@@ -19,7 +45,6 @@
 - Swift 3.0 support
   [Keith Smiley](https://github.com/keith)
   [#76](https://github.com/lyft/mapper/pull/76)
-
 - Update transformation function to take `Any`
   [Keith Smiley](https://github.com/keith)
   [#76](https://github.com/lyft/mapper/pull/76)
