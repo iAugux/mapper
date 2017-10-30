@@ -1,4 +1,4 @@
-# Master
+# master
 
 ## Breaking
 
@@ -7,6 +7,47 @@
 ## Enhancements
 
 - None
+
+# 7.2.0
+
+## Breaking
+
+- None
+
+## Enhancements
+
+- Support Array Of Fields For Custom Transformation
+  [Daniel Duan](https://github.com/dduan)
+  [#120](https://github.com/lyft/mapper/pull/120)
+
+# 7.1.0
+
+## Breaking
+
+- None
+
+## Enhancements
+
+- Remove call to characters on string
+  [Keith Smiley](https://github.com/keith)
+  [#116](https://github.com/lyft/mapper/pull/116)
+- Add Convertible implementations for `U?Int(32|64)`
+  [Daniel Duan](https://github.com/dduan)
+  [#117](https://github.com/lyft/mapper/pull/117)
+
+# 7.0.0
+
+## Breaking
+
+- Update for Swift 4
+  [Keith Smiley](https://github.com/keith)
+  [#113](https://github.com/lyft/mapper/pull/113)
+
+## Enhancements
+
+- Add `@nonobjc` to our `NSDictionary` extension
+  [Keith Smiley](https://github.com/keith)
+  [#107](https://github.com/lyft/mapper/pull/107)
 
 ## Bug Fixes
 
@@ -24,7 +65,7 @@
 
 - Add JSONSerialization integration tests
   [Keith Smiley](https://github.com/keith)
-  [#76](https://github.com/lyft/mapper/pull/90)
+  [#90](https://github.com/lyft/mapper/pull/90)
 - Test with optimizations
   [Keith Smiley](https://github.com/keith)
   [#92](https://github.com/lyft/mapper/pull/92)
@@ -51,7 +92,9 @@
 
 ## Enhancements
 
-- None
+- Remove duplicate `Hashable` protocol conformance
+  [Keith Smiley](https://github.com/keith)
+  [#108](https://github.com/lyft/mapper/pull/108)
 
 ## Bug Fixes
 
